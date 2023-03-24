@@ -15,13 +15,9 @@ export const UserProvider = ({ children }) => {
     console.log(info);
   };
 
-  const testeFun = () => {
-    setUser(user)
-    setInfo(info)
-  };
 
   return (
-    <UserContext.Provider value={{ user, info, setUser, userInput, error, testeFun }}>
+    <UserContext.Provider value={{ user, info, setUser, userInput, error }}>
       {children}
     </UserContext.Provider>
   );

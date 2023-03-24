@@ -1,61 +1,40 @@
 import React, { useContext } from "react";
-import { HomeStyle } from "./StyledHome";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
+import Form from "./Form";
+import styled from "styled-components";
+
+import logo from "../../images/logo-github.png";
+import User from "./User";
 
 export default function Home() {
-  const { info, setUser, userInput, error, testeFun } = useContext(UserContext);
+  const { info, setUser, userInput } = useContext(UserContext);
 
   return (
     <HomeStyle className="flex-class">
-      <div className="form">
-        <h3>Busque um usuário</h3>
-        <input
-          onChange={(e) => setUser(e.target.value)}
-          type="text"
-          placeholder="Insira um usuário"
-        ></input>
-        <button type="prev" onClick={userInput}>
-          Buscar
-        </button>
-      </div>
-
-      {info === "" ? (
-        <></>
-      ) : (
-        <>
-          {info.message === "Not Found" ? (
-            <p className="error">Usuário não encontrado!</p>
-          ) : (
-            <div className="userCard">
-              <div>
-                <p>Nome: </p>
-                <span>{info.name}</span>
-              </div>
-
-              <div>
-                <p>Endereço: </p>
-                <span>{info.location}</span>
-              </div>
-
-              <div>
-                <p>Bio: </p>
-                <span>{info.bio}</span>
-              </div>
-
-              <div>
-                <p>Repositórios públicos: </p>
-                <span>{info.public_repos}</span>
-              </div>
-
-              <Link onClick={testeFun} to={`user/${info.login}`}>
-                Acesse os repositórios deste usuário.
-              </Link>
-            </div>
-          )}
-        </>
-      )}
+      <img alt="" src={logo}></img>
+      <h1>Search an Username</h1>
+      <Form userInput={userInput} setUser={setUser} s />
+      <User info={info} />
     </HomeStyle>
   );
 }
+
+const HomeStyle = styled.div`
+  flex-direction: column;
+
+  img {
+    height: 48px;
+    width: 48px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-weight: 300;
+    color: #f0f6fc;
+  }
+`;
