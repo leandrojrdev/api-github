@@ -5,19 +5,22 @@ export const UserContext = createContext("Vazio");
 export const UserProvider = ({ children }) => {
   const [info, setInfo] = useState("");
   const [user, setUser] = useState("");
-  const [error, setError] = useState("");
 
   const userInput = () => {
     fetch(`https://api.github.com/users/${user}`)
       .then((resp) => resp.json())
       .then((data) => setInfo(data))
-      .catch((error) => setError(error));
     console.log(info);
+
+
+    if (info.message === 'Not Found'){
+        setInfo("")
+    }
   };
 
 
   return (
-    <UserContext.Provider value={{ user, info, setUser, userInput, error }}>
+    <UserContext.Provider value={{ user, info, setUser, userInput }}>
       {children}
     </UserContext.Provider>
   );

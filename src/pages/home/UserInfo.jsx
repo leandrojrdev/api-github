@@ -3,9 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { FaUserFriends } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 
-
-
-export default function User({ info }) {
+export default function UserInfo({ info }) {
   return (
     <UserStyle>
       {info === "" ? (
@@ -16,7 +14,7 @@ export default function User({ info }) {
             <p className="error">Usuário não encontrado!</p>
           ) : (
             <div className="userCard flex-class">
-              <img src={info.avatar_url} alt="" ></img>
+              <img src={info.avatar_url} alt=""></img>
               <div className="username">
                 <h1>{info.name}</h1>
                 <span>{info.login}</span>
@@ -32,7 +30,7 @@ export default function User({ info }) {
                   {info.following} following
                 </span>
                 <span className="location flex-class">
-                  <HiLocationMarker id="svgLocation"/>
+                  <HiLocationMarker id="svgLocation" />
                   {info.location}
                 </span>
               </div>
@@ -60,7 +58,35 @@ const entryAnimation = keyframes`
     }
 `;
 
+const errorAnimation = keyframes`
+    0%{
+        opacity: 0;
+        display: none;
+
+    }
+    20%{
+        opacity: 1;
+        display: block;
+    }
+    80%{
+        opacity: 1;
+        display: block;
+    }
+    100%{
+        opacity: 0;
+    }
+`;
+
 const UserStyle = styled.div`
+  .error {
+    color: red;
+    font-weight: 400;
+    animation: ${errorAnimation};
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 5s;
+  }
+
   .userCard {
     width: 320px;
     padding: 20px 15px;
@@ -77,8 +103,8 @@ const UserStyle = styled.div`
     animation-duration: 1s;
 
     img {
-      width: 130px;
-      height: 130px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       margin: 10px 0 35px 0;
     }
@@ -128,17 +154,17 @@ const UserStyle = styled.div`
         }
       }
 
-      .location{
-        #svgLocation{
-            margin-right: 5px;
+      .location {
+        #svgLocation {
+          margin-right: 5px;
         }
       }
     }
 
-    .userAncor{
-        color: #c9d1d9;
-        text-decoration: underline;
-        width: 95%;
+    .userAncor {
+      color: #c9d1d9;
+      text-decoration: underline;
+      width: 95%;
     }
   }
 `;

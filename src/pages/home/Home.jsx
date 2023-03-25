@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import Form from "./Form";
 import styled from "styled-components";
 
 import logo from "../../images/logo-github.png";
-import User from "./User";
+import UserInfo from "./UserInfo";
 
 export default function Home() {
   const { info, setUser, userInput } = useContext(UserContext);
@@ -15,7 +14,7 @@ export default function Home() {
       <img alt="" src={logo}></img>
       <h1>Search an Username</h1>
       <Form userInput={userInput} setUser={setUser} s />
-      <User info={info} />
+      <UserInfo info={info} />
     </HomeStyle>
   );
 }
