@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
 
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export default function User() {
   const { id } = useParams();
@@ -69,6 +69,19 @@ export default function User() {
   );
 }
 
+
+const reposAnim = keyframes`
+    0%{
+        margin-top: 150px;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        margin-top: 15px;
+
+    }
+`;
+
 const UserStyled = styled.div`
   color: #c9d1d9;
 
@@ -92,6 +105,11 @@ const UserStyled = styled.div`
       flex-wrap: wrap;
 
       .repositorio {
+        animation: ${reposAnim};
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+
         flex-direction: column;
         width: 30%;
         padding: 10px 15px;
