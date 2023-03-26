@@ -9,7 +9,7 @@ export default function Form({ userInput, setUser }) {
         name="name"
         onChange={(e) => setUser(e.target.value)}
         type="text"
-        placeholder="Insira um usuário"
+        placeholder="Enter a username"
       ></input>
       <button type="prev" onClick={userInput}>
         Search

@@ -16,3 +16,23 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.js-icon {
+  background-color: #f1e05a;
+}
+
+.css-icon {
+  background-color: #563d7c;
+}
+
+.html-icon {
+  background-color: #e34c26;
+}
+
+.ts-icon {
+  background-color: #3178c6;
+}
+
+.default-color {
+  background-color: #8b949e;
+}

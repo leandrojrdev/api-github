@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <HomeStyle className="flex-class">
       <img alt="" src={logo}></img>
-      <h1>Search an Username</h1>
+      <h1>Search a Username</h1>
       <Form userInput={userInput} setUser={setUser} s />
       <UserInfo info={info} />
     </HomeStyle>

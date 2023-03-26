@@ -7,6 +7,7 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState("");
 
   const userInput = () => {
+    setInfo("")
     fetch(`https://api.github.com/users/${user}`)
       .then((resp) => resp.json())
       .then((data) => setInfo(data))
