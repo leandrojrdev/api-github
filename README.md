@@ -24,3 +24,5 @@ Como foi dito anteriormente, o objetivo desse projeto é aprimorar minhas habili
 
 Fique à vontade para clonar o projeto e testar você mesmo. Após a clonagem basta rodar o comando "npm install" no terminal para instalação dos pacotes. Após a instalação basta rodar o comando "npm run dev". Você também pode acessar o link do projeto. 
 
+https://api-github-leandrojrdev.web.app/
+
