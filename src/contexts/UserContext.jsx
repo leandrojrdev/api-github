@@ -7,18 +7,16 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState("");
 
   const userInput = () => {
-    setInfo("")
+    setInfo("");
     fetch(`https://api.github.com/users/${user}`)
       .then((resp) => resp.json())
-      .then((data) => setInfo(data))
+      .then((data) => setInfo(data));
     console.log(info);
 
-
-    if (info.message === 'Not Found'){
-        setInfo("")
+    if (info.message === "Not Found") {
+      setInfo("");
     }
   };
-
 
   return (
     <UserContext.Provider value={{ user, info, setUser, userInput }}>

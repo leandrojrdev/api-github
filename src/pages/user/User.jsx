@@ -23,7 +23,7 @@ export default function User() {
           {projects.map((x) => (
             <div className="repositorio flex-class">
               <div className="title flex-class">
-                <a href={x.url} target="_blank">
+                <a href={x.html_url} target="_blank">
                   {x.name}
                 </a>
                 <div>{x.private ? "Private" : "Public"}</div>
